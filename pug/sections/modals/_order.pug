@@ -1,0 +1,32 @@
+dialog(data-modal-name="get_order")
+
+
+    div.container
+        div(data-modal-close).cross
+            include ../../../images/icons/Cross.svg
+    
+        h2 Диод ДЧЛ133-200-16
+
+        div.details
+            div.price
+                span Цена, шт:
+                strong 2 980 ₽
+            div.quantity
+                div.minus –
+                input(type="number", name="quantity", value="1", min="1", max="1000")
+                div.plus +
+
+        form
+            input(type="text", placeholder="ФИО")
+            div
+                input(type="text", placeholder="E-mail")
+                input(type="text", placeholder="8 (___) ___ - __ - __", data-phone-pattern="")
+            textarea(name="message", placeholder="Комментарий к заказу", rows="3")
+            small.policy Нажимая кнопку, я даю свое согласие на обработку моих персональных данных в соответствии с законом № 152-ФЗ «О персональных данных» от 27.07.2006 и принимаю условия #[a(href="index.html") пользовательского соглашения].
+            div
+                div.total
+                    span Итого:
+                    strong 149 900 ₽
+                button
+                    include ../../../images/icons/Buy.svg
+                    span Заказать

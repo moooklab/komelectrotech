@@ -1,0 +1,45 @@
+mixin category(title, src)
+    a(href="category.html").category_card
+        img(src=src, alt="")
+        div.title
+            h4= title
+
+mixin product(title, price, available, src)
+    a(href="product.html").product_card
+        img(src=src, alt="").preview
+        if available
+            div(title="В наличии").tick
+                include ../../images/icons/Tick.svg
+        div.title
+            span.title= title
+            span.price= price
+
+mixin partner(logo, title, description)
+    div.partner
+        img(src=logo, alt="")
+        div.text
+            strong= title
+            span= description
+
+mixin select(name, ...items)
+    fieldset.select
+        div(tabindex="0").select_current
+            each item, index in items
+                - index == 0 ? checked = true : checked = false
+                input(type="radio", id=name + '_' + index, value=item, name=name, checked=checked)
+                span= item
+            img(src="images/icons/Arrow.svg", alt="")
+        div.select_list
+            each item, index in items
+                label(for=name + '_' + index)= item
+
+mixin pagination(...items)
+    div.pagination
+        a(href="category.html")
+            include ../../images/icons/Arrow.svg
+        div.pages
+            each item, index in items
+                - index == 0 ? active = true : active = false
+                a(href="category.html", class=active ? 'active' : '')= item
+        a(href="category.html")
+            include ../../images/icons/Arrow.svg

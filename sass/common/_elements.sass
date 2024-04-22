@@ -1,0 +1,371 @@
+a
+    &.underline
+        position: relative
+        display: inline-block
+        &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            height: 1px
+            width: 100%
+            background-color: $color-gray-dark
+            transition: all .2s
+        &:hover
+            &::after
+                width: 0
+
+h1, h2, h3, h4
+    font-weight: 600
+    text-transform: uppercase
+    & > *
+        background: linear-gradient(90deg, #048187 0%, #00A7A7 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+
+h1
+    line-height: 1.1em
+    +font(24px, 48px)
+
+h2
+    line-height: 1.3em
+    +font(20px, 36px)
+
+h3
+    line-height: 1.4em
+    +font(18px, 30px)
+
+h4
+    line-height: 1.5em
+    +font(14px, 16px)
+
+small
+    line-height: 22px
+    +font(13px, 14px)
+
+big
+    line-height: 27px
+    +font(16px, 18px)
+
+input, textarea
+    padding: 12px
+    padding-left: var(--gap)
+    background-color: white
+    border-radius: 4px
+    width: 100%
+    border: 1px solid white
+    transition: border .3s
+    @extend small
+    &::placeholder
+        color: $color-gray-dark
+        opacity: 0.5
+    &::-webkit-search-cancel-button
+        cursor: pointer
+        appearance: none
+        height: 30px
+        width: 30px
+        margin-right: 30px
+        background: transparent
+        background-image: url(../images/icons/Cross.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+    &:hover
+        border: 1px solid rgba(4, 129, 135, 0.5)
+    &:focus
+        border: 1px solid $color-green-dark
+
+button, a.button
+    cursor: pointer
+    display: grid
+    align-items: center
+    justify-content: center
+    grid-auto-flow: column
+    grid-auto-columns: max-content
+    grid-gap: 10px
+    background-color: $color-green-dark
+    color: white
+    padding: 8px 24px
+    border-radius: 4px
+    transition: .2s all
+
+    svg
+        path
+            stroke: white
+            transition: .2s all
+
+    span
+        @extend small
+
+    &:hover
+        background-color: $color-green-light
+
+fieldset.select
+    position: relative
+    z-index: 1
+    &:hover
+        z-index: 2
+    div.select_current
+        position: relative
+        cursor: pointer
+        outline: none
+        display: grid
+        align-items: center
+        grid-template-columns: 1fr max-content
+        grid-gap: 10px
+        border-bottom: 1px solid #C6CDD0
+        padding: 8px 0
+        input
+            display: none
+            &:checked
+                & + span
+                    display: block
+        span
+            display: none
+            width: 100%
+            @extend small
+            text-overflow: ellipsis
+        img
+            transition: transform .2s
+        &:focus
+            pointer-events: none
+            img
+                transform: rotate(180deg)
+            & + div.select_list
+                opacity: 1
+                animation-name: none
+    div.select_list
+        display: block
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        height: max-content
+        opacity: 0
+        animation-name: hideList
+        animation-duration: 0.5s
+        animation-delay: 0.5s
+        animation-fill-mode: forwards
+        animation-timing-function: step-start
+        background-color: white
+        width: max-content
+        min-width: 100%
+        label
+            width: 100%
+            cursor: pointer
+            display: block
+            padding: 8px 16px
+            @extend small
+            &:hover, &:focus
+                background-color: #f5f5f5
+
+    @keyframes hideList
+        from
+            transform: scaleY(1)
+        to
+            transform: scaleY(0)
+
+div.tag
+    background-color: $color-green-dark
+    color: white
+    text-transform: uppercase
+    @extend small
+    font-weight: 300
+    padding: 6px 15px
+
+div.quantity
+    user-select: none
+    position: relative
+    font-size: 18px
+    line-height: 30px
+    font-weight: 600
+    width: 120px
+    height: 46px
+    border-radius: 4px
+    +screen(s)
+        font-size: 16px
+        line-height: 24px
+        width: 100px
+
+    div.minus
+        cursor: pointer
+        position: absolute
+        top: 50%
+        left: var(--small-gap)
+        transform: translateY(-50%)
+        z-index: 2
+
+    div.plus
+        cursor: pointer
+        position: absolute
+        top: 50%
+        right: var(--small-gap)
+        transform: translateY(-50%)
+        z-index: 2
+        
+    input
+        width: 100%
+        height: 100%
+        font-size: 18px
+        line-height: 30px
+        text-align: center
+        padding: unset
+        +screen(s)
+            font-size: 16px
+            line-height: 24px
+
+        &::-webkit-inner-spin-button
+            appearance: none
+        &::-webkit-outer-spin-button
+            appearance: none
+
+a.category_card
+    display: grid
+    grid-gap: 20px
+    img
+        width: 100%
+        mix-blend-mode: multiply
+    div.title
+        position: relative
+        padding-top: 15px
+        border-top: 1px solid $color-gray
+        transition: color .5s
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 0
+            height: 1px
+            background-color: $color-green-dark
+            transition: all .3s
+
+    &:hover
+        div.title
+            color: $color-green-dark
+            &::before
+                width: 100%
+
+a.product_card
+    position: relative
+    padding: 15px
+    border-radius: 4px
+    transition: background-color .3s
+
+    img.preview
+        width: 100%
+        aspect-ratio: 4 / 3
+        object-fit: contain
+        object-position: center center
+
+    div.tick
+        position: absolute
+        top: 20px
+        right: 20px
+        display: grid
+        align-items: center
+        justify-items: center
+        width: 16px
+        height: 16px
+        background-color: #19CA75
+        border-radius: 50%
+
+        svg
+            margin-top: -4px
+            margin-left: -3px
+            width: 24px
+            height: 24px
+            path
+                stroke: white
+
+    div.title
+        text-align: center
+        position: relative
+        padding-top: 15px
+        border-top: 1px solid $color-gray
+        transition: color .5s
+        span.title
+            @extend small
+        span.price
+            display: block
+            font-weight: 700
+        &::before
+            content: ''
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 0
+            height: 1px
+            background-color: $color-green-dark
+            transition: all .3s
+
+    &:hover
+        background-color: white
+        div.title
+            // color: $color-green-dark
+            &::before
+                width: 100%
+
+div.partner
+    padding: 20px
+    border: 1px solid $color-gray
+    display: grid
+    align-items: center
+    grid-template-columns: 1fr 2fr
+    grid-gap: var(--gap)
+    +screen(m)
+        align-content: start
+        grid-template-columns: 1fr
+        justify-items: center
+
+    img
+        mix-blend-mode: multiply
+        width: 100%
+        max-width: 240px
+
+    div.text
+        display: grid
+        grid-gap: 10px
+
+div.pagination
+    width: 100%
+    display: grid
+    justify-content: center
+    grid-auto-flow: column
+    grid-auto-columns: max-content
+    grid-gap: calc(var(--gap) * 2)
+    +screen(s)
+        grid-gap: var(--small-gap)
+    a
+        display: grid
+        align-items: center
+        justify-items: center
+        width: 40px
+        height: 40px
+        border: 1px solid transparent
+        border-radius: 4px
+        +screen(s)
+            width: 40px
+            height: 40px
+        &:hover
+            border-color: $color-gray
+
+        &.active
+            background: $color-green-dark
+            color: white
+
+    div.pages
+        display: grid
+        grid-auto-flow: column
+        grid-auto-columns: max-content
+        grid-gap: 10px
+        +screen(s)
+            grid-gap: unset
+
+    & > *:first-child
+        transform: rotate(90deg)
+
+    & > *:last-child
+        transform: rotate(-90deg)

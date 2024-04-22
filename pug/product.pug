@@ -1,0 +1,9 @@
+extends common/_layout.pug
+
+block links
+    link(rel="stylesheet", href="css/product.css")
+
+block content
+    include sections/product/_breadcrumbs.pug
+    include sections/product/_product.pug
+    include sections/product/_similar.pug

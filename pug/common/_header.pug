@@ -1,0 +1,28 @@
+header
+    div.container
+
+        a(href="index.html").logotype
+            img(src="images/logotype_symbol.svg", alt="")
+            include ../../images/logotype_text.svg
+
+        a(href="catalog.html").button
+            include ../../images/icons/Catalog.svg
+            span Продукция
+
+        div.representative
+            span Официальный представитель
+            div.list
+                a(href="index.html").underline Электровыпрямитель
+                a(href="index.html").underline СЗТП
+                a(href="index.html").underline Электрум АВ
+
+        div.adress
+            img(src="images/icons/Pin.svg", alt="")
+            span г. Саранск
+
+        div.contacts
+            a(href="tel:78342241536") +7 (8342) 24-15-36
+            a(data-modal-target="get_callback").phone: include ../../images/icons/Phone.svg
+            a(href="mailto:komelectrotex@mail.ru").email: include ../../images/icons/Email.svg
+
+        div(data-modal-target="menu").menu: include ../../images/icons/Menu.svg

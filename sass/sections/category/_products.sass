@@ -1,0 +1,40 @@
+section.products
+    padding-top: calc(var(--section-gap) / 2)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: calc(var(--big-gap) * 2)
+
+    div.sort
+        display: flex
+        flex-wrap: wrap
+        gap: 10px calc(var(--gap) * 2)
+        +screen(s)
+            display: grid
+            grid-template-columns: 1fr
+            grid-gap: 10px
+        
+    div.select
+        display: grid
+        align-items: center
+        grid-template-columns: max-content auto
+        grid-gap: 20px
+        +screen(s)
+            grid-template-columns: 1fr
+            grid-gap: unset
+
+        & > span
+            @extend small
+            font-weight: 500
+
+    div.list
+        display: grid
+        align-items: start
+        grid-template-columns: repeat(6, 1fr)
+        +screen(l)
+            grid-template-columns: repeat(4, 1fr)
+        +screen(m)
+            grid-template-columns: repeat(3, 1fr)
+        +screen(s)
+            grid-template-columns: repeat(2, 1fr)

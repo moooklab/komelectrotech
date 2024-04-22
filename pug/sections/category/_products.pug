@@ -1,0 +1,34 @@
+include ../../elements/_mixins.pug
+
+section.products
+    div.container
+
+        div.sort
+            div.select
+                span Категория:
+                +select('category', 'Диоды', 'Диоды частотные', 'Тиристоры', 'Тиристоры быстродействующие', 'Диоды, тиристоры и симисторы на ток 10-80 ампер', 'Модули, контакторы', 'Охладители', 'Складские остатки')
+            div.select
+                span Сортировать:
+                +select('sort', 'По убыванию цены', 'По возрастанию цены', 'По популярности', 'По названию')
+
+        div.list
+            +product('Т151-100-8', '2 350 ₽', false, 'images/product.webp')
+            +product('Т151-100-12', '2 350 ₽', true, 'images/empty.webp')
+            +product('Т151-100-16', 'по запросу', true, 'images/product.webp')
+            +product('Т161-160-8', '2 481 ₽', false, 'images/product.webp')
+            +product('Т161-160-12', '1 973 ₽', true, 'images/empty.webp')
+            +product('Т161-160-16', '2 280 ₽', false, 'images/empty.webp')
+            +product('Т361-160-24', 'по запросу', false, 'images/product.webp')
+            +product('Т161-200-8', '2 612 ₽', true, 'images/empty.webp')
+            +product('Т171-320-18', '1 973 ₽', false, 'images/empty.webp')
+            +product('Т371-320-22', '2 280 ₽', true, 'images/product.webp')
+            +product('Т123-200-8', 'по запросу', true, 'images/product.webp')
+            +product('Т123-200-12', '2 612 ₽', true, 'images/product.webp')
+            +product('Т373-1250-48', '1 973 ₽', false, 'images/product.webp')
+            +product('Т183-2500-38', '2 612 ₽', true, 'images/product.webp')
+            +product('Т183-2500-42', '2 280 ₽', true, 'images/empty.webp')
+            +product('Т193-2500-36', 'по запросу', false, 'images/empty.webp')
+            +product('Т193-2500-40', 'по запросу', false, 'images/product.webp')
+            +product('Т393-2500-34', '2 612 ₽', false, 'images/product.webp')
+
+        +pagination('1', '2', '3', '4','...', '23')

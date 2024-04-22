@@ -1,0 +1,143 @@
+section.product
+
+    div.container
+        display: grid
+        align-items: start
+        grid-template-areas: 'Description Image' 'Description Advantages'
+        grid-template-rows: max-content 1fr
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: calc(var(--gap) * 2)
+        +screen(m)
+            grid-template-areas: 'Image' 'Description' 'Advantages'
+            grid-template-columns: 1fr
+
+    div.description
+        grid-area: Description
+        display: grid
+        grid-gap: calc(var(--gap) * 2)
+        +screen(m)
+            order: 2
+
+        div.main
+            display: grid
+            grid-gap: var(--gap)
+        
+            div.available
+                display: grid
+                align-items: center
+                grid-template-columns: max-content auto
+                grid-gap: 10px
+                @extend small
+
+                div.tick
+                    display: grid
+                    align-items: center
+                    justify-items: center
+                    width: 16px
+                    height: 16px
+                    background-color: #19CA75
+                    border-radius: 50%
+
+                    svg
+                        margin-top: -4px
+                        margin-left: -3px
+                        width: 24px
+                        height: 24px
+                        path
+                            stroke: white
+
+            div.text
+                display: grid
+                grid-gap: 1em
+                @extend small
+
+            div.order
+                display: grid
+                grid-template-columns: repeat(3, max-content)
+                align-items: center
+                grid-gap: 10px calc(var(--gap) * 2)
+                +screen(s)
+                    grid-gap: 10px var(--gap)
+
+                span.price
+                    @extend h2
+
+                button
+                    justify-content: center
+                    width: 100%
+                    +screen(s)
+                        height: 46px
+                        svg
+                            display: none
+
+        div.additional
+            display: grid
+            grid-gap: calc(var(--gap) * 2)
+
+            div.specs
+                @extend small
+                div
+                    display: grid
+                    grid-template-columns: repeat(2, 1fr)
+                    grid-gap: var(--small-gap)
+                    border-radius: 4px
+                    padding: 10px var(--small-gap)
+                    &:nth-child(2n-1)
+                        background-color: white
+
+            div.text
+                display: grid
+                grid-gap: var(--small-gap)
+                @extend small
+
+                strong
+                    @extend big
+
+    img.preview
+        grid-area: Image
+        width: 100%
+
+    div.advantages
+        grid-area: Advantages
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: var(--big-gap)
+        +screen(l)
+            grid-template-columns: 1fr
+            grid-gap: var(--small-gap)
+        +screen(m)
+            grid-template-columns: repeat(3, 1fr)
+        +screen(s)
+            grid-template-columns: repeat(2, 1fr)
+        +screen(xs)
+            grid-template-columns: 1fr
+
+        div.advantage
+            display: grid
+            align-items: center
+            grid-template-columns: max-content 1fr
+            grid-gap: var(--small-gap)
+
+            svg
+                width: 50px
+                height: 50px
+                +screen(s)
+                    width: 30px
+                    height: 30px
+                path
+                    stroke-width: 1px
+
+            div
+                display: grid
+                grid-gap: 5px
+            
+            strong
+                @extend big
+
+            span
+                @extend small
+                opacity: 0.7
+                +screen(m)
+                    display: none
+
+

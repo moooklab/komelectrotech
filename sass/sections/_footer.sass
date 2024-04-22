@@ -1,0 +1,114 @@
+footer
+    padding-top: calc(var(--section-gap))
+    padding-bottom: calc(var(--section-gap))
+    background-color: $color-gray-dark
+    color: white
+
+    svg
+        path
+            stroke: white
+
+    div.container
+        display: grid
+        align-items: start
+        grid-template-areas: 'Logotype Contacts Contacts' 'Copyright Catalog Menu' 'Documents Catalog Menu'
+        grid-template-columns: 5fr 3fr 3fr
+        grid-gap: 60px 80px
+        +screen(m)
+            grid-template-areas: 'Logotype Logotype' 'Contacts Contacts' 'Catalog Menu' 'Copyright Copyright' 'Documents Documents'
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: 40px
+        +screen(s)
+            grid-template-areas: 'Logotype' 'Contacts' 'Catalog' 'Menu' 'Copyright' 'Documents'
+            grid-template-columns: 1fr
+            grid-gap: 40px
+
+    a.logotype
+        grid-area: Logotype
+        display: grid
+        align-items: center
+        grid-template-columns: max-content max-content
+        grid-gap: 15px
+    
+    div.contacts
+        grid-area: Contacts
+        display: grid
+        align-items: center
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 15px
+        text-transform: uppercase
+        +screen(s)
+            grid-template-columns: 1fr
+
+        div
+            display: grid
+            align-items: center
+            grid-template-columns: max-content 1fr
+            grid-gap: 10px
+
+        div.adress
+            grid-column: 1 / 3
+            +screen(s)
+                grid-column: 1 / 2
+
+        div.phone
+            transition: color .2s
+            svg
+                path
+                    transition: stroke .2s
+            &:hover
+                color: $color-green-light
+                svg
+                    path
+                        stroke: $color-green-light
+
+        div.email
+            @extend .phone
+
+    div.copyright
+        grid-area: Copyright
+        display: grid
+        grid-template-columns: max-content 1fr
+        grid-gap: 30px
+        
+        span
+            @extend h3
+
+        & > *:first-child
+            font-size: 60px
+            line-height: 1em
+
+    div.documents
+        grid-area: Documents
+
+    div.catalog
+        grid-area: Catalog
+
+    div.menu
+        grid-area: Menu
+
+    div.catalog, div.menu
+        display: grid
+        justify-items: start
+        grid-gap: var(--gap)
+        strong
+            @extend h4
+            text-transform: uppercase
+            opacity: 0.5
+        menu
+            display: grid
+            grid-gap: .5em 
+            a
+                @extend small
+                transition: color .2s
+                &:hover
+                    color: $color-green-light
+
+    div.documents
+        display: grid
+        justify-items: start
+        grid-gap: 10px
+        @extend small
+        a
+            &::after
+                background-color: white

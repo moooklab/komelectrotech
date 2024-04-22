@@ -1,0 +1,18 @@
+dialog(data-modal-name="get_callback")
+
+
+    div.container
+        div(data-modal-close).cross
+            include ../../../images/icons/Cross.svg
+    
+        div.text
+            h3 Заказать звонок
+            span Заполните и отправте форму и наш менеджер перезвонит Вам в ближайшее время
+
+        form
+            input(type="text", placeholder="ФИО")
+            input(type="text", placeholder="8 (___) ___ - __ - __", data-phone-pattern="")
+            small.policy Нажимая кнопку, я даю свое согласие на обработку моих персональных данных в соответствии с законом № 152-ФЗ «О персональных данных» от 27.07.2006 и принимаю условия #[a(href="index.html") пользовательского соглашения].
+            button
+                include ../../../images/icons/Email.svg
+                span Заказать звонок

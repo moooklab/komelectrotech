@@ -1,0 +1,9 @@
+extends common/_layout.pug
+
+block links
+    link(rel="stylesheet", href="css/catalog.css")
+
+block content
+    include sections/catalog/_breadcrumbs.pug
+    include sections/catalog/_description.pug
+    include sections/catalog/_categories.pug

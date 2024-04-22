@@ -1,0 +1,1430 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+* {
+  margin: unset;
+  padding: unset;
+  outline: unset;
+  border: unset;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+select,
+button {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, select::-webkit-input-placeholder, button::-webkit-input-placeholder {
+  color: inherit;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, button::-moz-placeholder {
+  color: inherit;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder, select:-ms-input-placeholder, button:-ms-input-placeholder {
+  color: inherit;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder, select::-ms-input-placeholder, button::-ms-input-placeholder {
+  color: inherit;
+}
+input::placeholder,
+textarea::placeholder,
+select::placeholder,
+button::placeholder {
+  color: inherit;
+}
+input option,
+textarea option,
+select option,
+button option {
+  background-color: inherit;
+}
+
+input, textarea, label {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+  resize: none;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, label::-webkit-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, label::-moz-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder, label:-ms-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder, label::-ms-input-placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+input::placeholder, textarea::placeholder, label::placeholder {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+  font-style: italic;
+}
+
+:root {
+  --small-gap: 20px;
+  --gap: 30px;
+  --big-gap: 40px;
+  --full: minmax(var(--gap), 1fr);
+  --content: min(1440px, 100% - var(--gap) * 2);
+  --breakout: minmax(0, 190px);
+  --header-height: 86px;
+  --section-gap: 120px;
+}
+@media (max-width: 960px) {
+  :root {
+    --gap: 20px;
+    --big-gap: 30px;
+    --section-gap: 80px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --header-height: 68px;
+    --small-gap: 10px;
+    --big-gap: 20px;
+    --section-gap: 60px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --header-height: 60px;
+  }
+}
+
+html, body {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: #334752;
+  background-color: #F3F7F9;
+  font-weight: 400;
+  line-height: 1.5em;
+  overflow-x: clip;
+  font-size: 14px;
+}
+@media (min-width: 480px) {
+  html, body {
+    font-size: calc(0.0020833333 * 100vw + 13px);
+  }
+}
+@media (min-width: 1440px) {
+  html, body {
+    font-size: 16px;
+  }
+}
+
+section, header, footer {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: [full-start] var(--full) [breakout-start] var(--breakout) [content-start] var(--content) [content-end] var(--breakout) [breakout-end] var(--full) [full-end];
+}
+section > *, header > *, footer > * {
+  grid-column: content;
+}
+section .full, header .full, footer .full {
+  grid-column: full;
+}
+section .breakout, header .breakout, footer .breakout {
+  grid-column: breakout;
+}
+
+a.underline {
+  position: relative;
+  display: inline-block;
+}
+a.underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #334752;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+a.underline:hover::after {
+  width: 0;
+}
+
+h1, h2, h3, dialog[data-modal-name=get_order] form div.total strong, dialog[data-modal-name=get_order] div.details div.price strong, footer div.copyright span, h4, dialog[data-modal-name=menu] div.catalog strong, dialog[data-modal-name=menu] div.menu strong, footer div.catalog strong, footer div.menu strong {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+h1 > *, h2 > *, h3 > *, dialog[data-modal-name=get_order] form div.total strong > *, dialog[data-modal-name=get_order] div.details div.price strong > *, footer div.copyright span > *, h4 > *, dialog[data-modal-name=menu] div.catalog strong > *, dialog[data-modal-name=menu] div.menu strong > *, footer div.catalog strong > *, footer div.menu strong > * {
+  background: -webkit-gradient(linear, left top, right top, from(#048187), to(#00A7A7));
+  background: linear-gradient(90deg, #048187 0%, #00A7A7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 {
+  line-height: 1.1em;
+  font-size: 24px;
+}
+@media (min-width: 480px) {
+  h1 {
+    font-size: calc(0.025 * 100vw + 12px);
+  }
+}
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+h2 {
+  line-height: 1.3em;
+  font-size: 20px;
+}
+@media (min-width: 480px) {
+  h2 {
+    font-size: calc(0.0166666667 * 100vw + 12px);
+  }
+}
+@media (min-width: 1440px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+
+h3, dialog[data-modal-name=get_order] form div.total strong, dialog[data-modal-name=get_order] div.details div.price strong, footer div.copyright span {
+  line-height: 1.4em;
+  font-size: 18px;
+}
+@media (min-width: 480px) {
+  h3, dialog[data-modal-name=get_order] form div.total strong, dialog[data-modal-name=get_order] div.details div.price strong, footer div.copyright span {
+    font-size: calc(0.0125 * 100vw + 12px);
+  }
+}
+@media (min-width: 1440px) {
+  h3, dialog[data-modal-name=get_order] form div.total strong, dialog[data-modal-name=get_order] div.details div.price strong, footer div.copyright span {
+    font-size: 30px;
+  }
+}
+
+h4, dialog[data-modal-name=menu] div.catalog strong, dialog[data-modal-name=menu] div.menu strong, footer div.catalog strong, footer div.menu strong {
+  line-height: 1.5em;
+  font-size: 14px;
+}
+@media (min-width: 480px) {
+  h4, dialog[data-modal-name=menu] div.catalog strong, dialog[data-modal-name=menu] div.menu strong, footer div.catalog strong, footer div.menu strong {
+    font-size: calc(0.0020833333 * 100vw + 13px);
+  }
+}
+@media (min-width: 1440px) {
+  h4, dialog[data-modal-name=menu] div.catalog strong, dialog[data-modal-name=menu] div.menu strong, footer div.catalog strong, footer div.menu strong {
+    font-size: 16px;
+  }
+}
+
+small, dialog[data-modal-name=menu] div.representative, dialog[data-modal-name=menu] div.contacts div.adress div span, dialog[data-modal-name=menu] div.contacts div.phone div span, dialog[data-modal-name=menu] div.contacts div.email div span, dialog[data-modal-name=get_order] form div.total span, dialog[data-modal-name=get_order] div.details div.price span, footer div.documents, footer div.catalog menu a, footer div.menu menu a, header div.representative, a.product_card div.title span.title, div.tag, fieldset.select div.select_list label, fieldset.select div.select_current span, button span, a.button span, input, textarea {
+  line-height: 22px;
+  font-size: 13px;
+}
+@media (min-width: 480px) {
+  small, dialog[data-modal-name=menu] div.representative, dialog[data-modal-name=menu] div.contacts div.adress div span, dialog[data-modal-name=menu] div.contacts div.phone div span, dialog[data-modal-name=menu] div.contacts div.email div span, dialog[data-modal-name=get_order] form div.total span, dialog[data-modal-name=get_order] div.details div.price span, footer div.documents, footer div.catalog menu a, footer div.menu menu a, header div.representative, a.product_card div.title span.title, div.tag, fieldset.select div.select_list label, fieldset.select div.select_current span, button span, a.button span, input, textarea {
+    font-size: calc(0.0010416667 * 100vw + 12.5px);
+  }
+}
+@media (min-width: 1440px) {
+  small, dialog[data-modal-name=menu] div.representative, dialog[data-modal-name=menu] div.contacts div.adress div span, dialog[data-modal-name=menu] div.contacts div.phone div span, dialog[data-modal-name=menu] div.contacts div.email div span, dialog[data-modal-name=get_order] form div.total span, dialog[data-modal-name=get_order] div.details div.price span, footer div.documents, footer div.catalog menu a, footer div.menu menu a, header div.representative, a.product_card div.title span.title, div.tag, fieldset.select div.select_list label, fieldset.select div.select_current span, button span, a.button span, input, textarea {
+    font-size: 14px;
+  }
+}
+
+big {
+  line-height: 27px;
+  font-size: 16px;
+}
+@media (min-width: 480px) {
+  big {
+    font-size: calc(0.0020833333 * 100vw + 15px);
+  }
+}
+@media (min-width: 1440px) {
+  big {
+    font-size: 18px;
+  }
+}
+
+input, textarea {
+  padding: 12px;
+  padding-left: var(--gap);
+  background-color: white;
+  border-radius: 4px;
+  width: 100%;
+  border: 1px solid white;
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #334752;
+  opacity: 0.5;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #334752;
+  opacity: 0.5;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #334752;
+  opacity: 0.5;
+}
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: #334752;
+  opacity: 0.5;
+}
+input::placeholder, textarea::placeholder {
+  color: #334752;
+  opacity: 0.5;
+}
+input::-webkit-search-cancel-button, textarea::-webkit-search-cancel-button {
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  height: 30px;
+  width: 30px;
+  margin-right: 30px;
+  background: transparent;
+  background-image: url(../images/icons/Cross.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+input:hover, textarea:hover {
+  border: 1px solid rgba(4, 129, 135, 0.5);
+}
+input:focus, textarea:focus {
+  border: 1px solid #048187;
+}
+
+button, a.button {
+  cursor: pointer;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 10px;
+  background-color: #048187;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+button svg path, a.button svg path {
+  stroke: white;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+button:hover, a.button:hover {
+  background-color: #069da5;
+}
+
+fieldset.select {
+  position: relative;
+  z-index: 1;
+}
+fieldset.select:hover {
+  z-index: 2;
+}
+fieldset.select div.select_current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 10px;
+  border-bottom: 1px solid #C6CDD0;
+  padding: 8px 0;
+}
+fieldset.select div.select_current input {
+  display: none;
+}
+fieldset.select div.select_current input:checked + span {
+  display: block;
+}
+fieldset.select div.select_current span {
+  display: none;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+fieldset.select div.select_current img {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+fieldset.select div.select_current:focus {
+  pointer-events: none;
+}
+fieldset.select div.select_current:focus img {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+fieldset.select div.select_current:focus + div.select_list {
+  opacity: 1;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+fieldset.select div.select_list {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  opacity: 0;
+  -webkit-animation-name: hideList;
+          animation-name: hideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+  background-color: white;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 100%;
+}
+fieldset.select div.select_list label {
+  width: 100%;
+  cursor: pointer;
+  display: block;
+  padding: 8px 16px;
+}
+fieldset.select div.select_list label:hover, fieldset.select div.select_list label:focus {
+  background-color: #f5f5f5;
+}
+@-webkit-keyframes hideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+@keyframes hideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+div.tag {
+  background-color: #048187;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 6px 15px;
+}
+
+div.quantity {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  width: 120px;
+  height: 46px;
+  border-radius: 4px;
+}
+@media (max-width: 640px) {
+  div.quantity {
+    font-size: 16px;
+    line-height: 24px;
+    width: 100px;
+  }
+}
+div.quantity div.minus {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: var(--small-gap);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+}
+div.quantity div.plus {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: var(--small-gap);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+}
+div.quantity input {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  padding: unset;
+}
+@media (max-width: 640px) {
+  div.quantity input {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+div.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+div.quantity input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+a.category_card {
+  display: grid;
+  grid-gap: 20px;
+}
+a.category_card img {
+  width: 100%;
+  mix-blend-mode: multiply;
+}
+a.category_card div.title {
+  position: relative;
+  padding-top: 15px;
+  border-top: 1px solid #C6CDD0;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+a.category_card div.title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #048187;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a.category_card:hover div.title {
+  color: #048187;
+}
+a.category_card:hover div.title::before {
+  width: 100%;
+}
+
+a.product_card {
+  position: relative;
+  padding: 15px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+a.product_card img.preview {
+  width: 100%;
+  aspect-ratio: 4/3;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center center;
+     object-position: center center;
+}
+a.product_card div.tick {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  width: 16px;
+  height: 16px;
+  background-color: #19CA75;
+  border-radius: 50%;
+}
+a.product_card div.tick svg {
+  margin-top: -4px;
+  margin-left: -3px;
+  width: 24px;
+  height: 24px;
+}
+a.product_card div.tick svg path {
+  stroke: white;
+}
+a.product_card div.title {
+  text-align: center;
+  position: relative;
+  padding-top: 15px;
+  border-top: 1px solid #C6CDD0;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+a.product_card div.title span.price {
+  display: block;
+  font-weight: 700;
+}
+a.product_card div.title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #048187;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+a.product_card:hover {
+  background-color: white;
+}
+a.product_card:hover div.title::before {
+  width: 100%;
+}
+
+div.partner {
+  padding: 20px;
+  border: 1px solid #C6CDD0;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: var(--gap);
+}
+@media (max-width: 960px) {
+  div.partner {
+    -ms-flex-line-pack: start;
+        align-content: start;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+div.partner img {
+  mix-blend-mode: multiply;
+  width: 100%;
+  max-width: 240px;
+}
+div.partner div.text {
+  display: grid;
+  grid-gap: 10px;
+}
+
+div.pagination {
+  width: 100%;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: calc(var(--gap) * 2);
+}
+@media (max-width: 640px) {
+  div.pagination {
+    grid-gap: var(--small-gap);
+  }
+}
+div.pagination a {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+@media (max-width: 640px) {
+  div.pagination a {
+    width: 40px;
+    height: 40px;
+  }
+}
+div.pagination a:hover {
+  border-color: #C6CDD0;
+}
+div.pagination a.active {
+  background: #048187;
+  color: white;
+}
+div.pagination div.pages {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 10px;
+}
+@media (max-width: 640px) {
+  div.pagination div.pages {
+    grid-gap: unset;
+  }
+}
+div.pagination > *:first-child {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+div.pagination > *:last-child {
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+@media (max-width: 640px) {
+  header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+header div.container {
+  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+}
+header a.logotype {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  grid-gap: 15px;
+}
+@media (max-width: 640px) {
+  header a.logotype img {
+    width: 30px;
+  }
+}
+header a.logotype svg {
+  width: 140px;
+}
+@media (max-width: 640px) {
+  header a.logotype svg {
+    width: 110px;
+  }
+}
+header a.logotype svg path {
+  fill: #334752;
+}
+@media (max-width: 800px) {
+  header a.button {
+    display: none;
+  }
+}
+@media (max-width: 1280px) {
+  header div.representative {
+    display: none;
+  }
+}
+header div.representative span {
+  opacity: 0.5;
+}
+header div.representative div.list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 20px;
+}
+header div.adress {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+}
+@media (max-width: 960px) {
+  header div.adress {
+    display: none;
+  }
+}
+header div.contacts {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 20px;
+}
+@media (max-width: 640px) {
+  header div.contacts {
+    grid-gap: 10px;
+  }
+}
+header div.contacts a {
+  font-size: 18px;
+  font-weight: 700;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+header div.contacts a:hover {
+  color: #048187;
+}
+@media (max-width: 540px) {
+  header div.contacts a:first-child {
+    display: none;
+  }
+}
+header div.contacts a.phone, header div.contacts a.email {
+  line-height: 0;
+  cursor: pointer;
+}
+header div.contacts a.phone svg path, header div.contacts a.email svg path {
+  -webkit-transition: stroke 0.2s;
+  transition: stroke 0.2s;
+}
+header div.contacts a.phone:hover svg path, header div.contacts a.email:hover svg path {
+  stroke: #048187;
+}
+header div.contacts img {
+  cursor: pointer;
+}
+header div.menu {
+  cursor: pointer;
+  line-height: 0;
+}
+header div.menu svg rect {
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
+}
+header div.menu:hover svg rect {
+  fill: #048187;
+}
+header.transparent {
+  background-color: rgba(255, 255, 255, 0);
+}
+header.sticky {
+  -webkit-box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
+          box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
+}
+
+footer {
+  padding-top: calc(var(--section-gap));
+  padding-bottom: calc(var(--section-gap));
+  background-color: #334752;
+  color: white;
+}
+footer svg path {
+  stroke: white;
+}
+footer div.container {
+  display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  grid-template-areas: "Logotype Contacts Contacts" "Copyright Catalog Menu" "Documents Catalog Menu";
+  grid-template-columns: 5fr 3fr 3fr;
+  grid-gap: 60px 80px;
+}
+@media (max-width: 960px) {
+  footer div.container {
+    grid-template-areas: "Logotype Logotype" "Contacts Contacts" "Catalog Menu" "Copyright Copyright" "Documents Documents";
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+}
+@media (max-width: 640px) {
+  footer div.container {
+    grid-template-areas: "Logotype" "Contacts" "Catalog" "Menu" "Copyright" "Documents";
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+}
+footer a.logotype {
+  grid-area: Logotype;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  grid-gap: 15px;
+}
+footer div.contacts {
+  grid-area: Contacts;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  footer div.contacts {
+    grid-template-columns: 1fr;
+  }
+}
+footer div.contacts div {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 10px;
+}
+footer div.contacts div.adress {
+  grid-column: 1/3;
+}
+@media (max-width: 640px) {
+  footer div.contacts div.adress {
+    grid-column: 1/2;
+  }
+}
+footer div.contacts div.phone, footer div.contacts div.email {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+footer div.contacts div.phone svg path, footer div.contacts div.email svg path {
+  -webkit-transition: stroke 0.2s;
+  transition: stroke 0.2s;
+}
+footer div.contacts div.phone:hover, footer div.contacts div.email:hover {
+  color: #069da5;
+}
+footer div.contacts div.phone:hover svg path, footer div.contacts div.email:hover svg path {
+  stroke: #069da5;
+}
+footer div.copyright {
+  grid-area: Copyright;
+  display: grid;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 30px;
+}
+footer div.copyright > *:first-child {
+  font-size: 60px;
+  line-height: 1em;
+}
+footer div.documents {
+  grid-area: Documents;
+}
+footer div.catalog {
+  grid-area: Catalog;
+}
+footer div.menu {
+  grid-area: Menu;
+}
+footer div.catalog, footer div.menu {
+  display: grid;
+  justify-items: start;
+  grid-gap: var(--gap);
+}
+footer div.catalog strong, footer div.menu strong {
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+footer div.catalog menu, footer div.menu menu {
+  display: grid;
+  grid-gap: 0.5em;
+}
+footer div.catalog menu a, footer div.menu menu a {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+footer div.catalog menu a:hover, footer div.menu menu a:hover {
+  color: #069da5;
+}
+footer div.documents {
+  display: grid;
+  justify-items: start;
+  grid-gap: 10px;
+}
+footer div.documents a::after {
+  background-color: white;
+}
+
+html:has(dialog[open]) {
+  overflow-y: hidden;
+  margin-right: var(--scrollbar-width);
+}
+
+dialog {
+  margin: auto;
+  -webkit-animation-name: modal;
+          animation-name: modal;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+dialog svg.cross {
+  position: fixed;
+  top: var(--section-side-gap);
+  right: var(--section-side-gap);
+  cursor: pointer;
+  justify-self: end;
+}
+dialog div.container {
+  padding: var(--section-side-gap);
+  max-width: 640px;
+}
+dialog::-ms-backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.75);
+  animation-name: modal;
+  animation-duration: 0.5s;
+}
+dialog::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-animation-name: modal;
+          animation-name: modal;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+dialog::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+@-webkit-keyframes modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+dialog[data-modal-name=get_order] {
+  background-color: transparent;
+  max-height: 100%;
+  max-width: 100%;
+}
+dialog[data-modal-name=get_order] div.container {
+  position: relative;
+  padding: calc(var(--gap) * 2);
+  max-width: 640px;
+  width: 100%;
+  color: #334752;
+  display: grid;
+  align-self: center;
+  grid-gap: var(--big-gap);
+  background-color: white;
+  border-radius: 4px;
+}
+dialog[data-modal-name=get_order] div.cross {
+  cursor: pointer;
+  line-height: 0;
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+}
+dialog[data-modal-name=get_order] div.cross svg {
+  width: 40px;
+  height: 40px;
+}
+dialog[data-modal-name=get_order] div.cross:hover svg path {
+  stroke: #048187;
+}
+dialog[data-modal-name=get_order] div.details {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: repeat(2, -webkit-max-content);
+  grid-template-columns: repeat(2, max-content);
+  grid-gap: calc(var(--gap) * 2);
+}
+dialog[data-modal-name=get_order] div.details div.price {
+  display: grid;
+}
+dialog[data-modal-name=get_order] div.details div.price span {
+  opacity: 0.7;
+}
+dialog[data-modal-name=get_order] div.details div.quantity {
+  border: 1px solid #C6CDD0;
+}
+dialog[data-modal-name=get_order] form {
+  display: grid;
+  grid-gap: 15px;
+}
+dialog[data-modal-name=get_order] form input, dialog[data-modal-name=get_order] form textarea {
+  border: 1px solid #C6CDD0;
+}
+dialog[data-modal-name=get_order] form div {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+@media (max-width: 640px) {
+  dialog[data-modal-name=get_order] form div {
+    grid-template-columns: 1fr;
+  }
+}
+dialog[data-modal-name=get_order] form small.policy, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.policy.representative, dialog[data-modal-name=menu] dialog[data-modal-name=get_order] form div.policy.representative, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.email div span.policy, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form div.total span.policy, dialog[data-modal-name=get_order] form input.policy, dialog[data-modal-name=get_order] form textarea.policy, dialog[data-modal-name=get_order] form button span.policy, button dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form a.button span.policy, a.button dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form fieldset.select div.select_current span.policy, fieldset.select div.select_current dialog[data-modal-name=get_order] form span.policy, dialog[data-modal-name=get_order] form fieldset.select div.select_list label.policy, fieldset.select div.select_list dialog[data-modal-name=get_order] form label.policy, dialog[data-modal-name=get_order] form div.policy.tag, dialog[data-modal-name=get_order] form a.product_card div.title span.policy.title, a.product_card div.title dialog[data-modal-name=get_order] form span.policy.title, dialog[data-modal-name=get_order] form header div.policy.representative, header dialog[data-modal-name=get_order] form div.policy.representative, dialog[data-modal-name=get_order] form footer div.catalog menu a.policy, footer div.catalog menu dialog[data-modal-name=get_order] form a.policy, dialog[data-modal-name=get_order] form footer div.menu menu a.policy, footer div.menu menu dialog[data-modal-name=get_order] form a.policy, dialog[data-modal-name=get_order] form footer div.policy.documents, footer dialog[data-modal-name=get_order] form div.policy.documents, dialog[data-modal-name=get_order] form div.details div.price span.policy, dialog[data-modal-name=get_order] div.details div.price form span.policy {
+  padding-top: var(--gap);
+  padding-bottom: var(--small-gap);
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(43, 42, 41, 0.5);
+}
+dialog[data-modal-name=get_order] form small.policy a, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.policy.representative a, dialog[data-modal-name=menu] dialog[data-modal-name=get_order] form div.policy.representative a, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy a, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy a, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.email div span.policy a, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form div.total span.policy a, dialog[data-modal-name=get_order] form input.policy a, dialog[data-modal-name=get_order] form textarea.policy a, dialog[data-modal-name=get_order] form button span.policy a, button dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form a.button span.policy a, a.button dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form fieldset.select div.select_current span.policy a, fieldset.select div.select_current dialog[data-modal-name=get_order] form span.policy a, dialog[data-modal-name=get_order] form fieldset.select div.select_list label.policy a, fieldset.select div.select_list dialog[data-modal-name=get_order] form label.policy a, dialog[data-modal-name=get_order] form div.policy.tag a, dialog[data-modal-name=get_order] form a.product_card div.title span.policy.title a, a.product_card div.title dialog[data-modal-name=get_order] form span.policy.title a, dialog[data-modal-name=get_order] form header div.policy.representative a, header dialog[data-modal-name=get_order] form div.policy.representative a, dialog[data-modal-name=get_order] form footer div.catalog menu a.policy a, footer div.catalog menu dialog[data-modal-name=get_order] form a.policy a, dialog[data-modal-name=get_order] form footer div.menu menu a.policy a, footer div.menu menu dialog[data-modal-name=get_order] form a.policy a, dialog[data-modal-name=get_order] form footer div.policy.documents a, footer dialog[data-modal-name=get_order] form div.policy.documents a, dialog[data-modal-name=get_order] form div.details div.price span.policy a, dialog[data-modal-name=get_order] div.details div.price form span.policy a {
+  text-decoration: underline;
+  color: #084A82;
+}
+dialog[data-modal-name=get_order] form small.policy a:hover, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.policy.representative a:hover, dialog[data-modal-name=menu] dialog[data-modal-name=get_order] form div.policy.representative a:hover, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form dialog[data-modal-name=menu] div.contacts div.email div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form div.total span.policy a:hover, dialog[data-modal-name=get_order] form input.policy a:hover, dialog[data-modal-name=get_order] form textarea.policy a:hover, dialog[data-modal-name=get_order] form button span.policy a:hover, button dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form a.button span.policy a:hover, a.button dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form fieldset.select div.select_current span.policy a:hover, fieldset.select div.select_current dialog[data-modal-name=get_order] form span.policy a:hover, dialog[data-modal-name=get_order] form fieldset.select div.select_list label.policy a:hover, fieldset.select div.select_list dialog[data-modal-name=get_order] form label.policy a:hover, dialog[data-modal-name=get_order] form div.policy.tag a:hover, dialog[data-modal-name=get_order] form a.product_card div.title span.policy.title a:hover, a.product_card div.title dialog[data-modal-name=get_order] form span.policy.title a:hover, dialog[data-modal-name=get_order] form header div.policy.representative a:hover, header dialog[data-modal-name=get_order] form div.policy.representative a:hover, dialog[data-modal-name=get_order] form footer div.catalog menu a.policy a:hover, footer div.catalog menu dialog[data-modal-name=get_order] form a.policy a:hover, dialog[data-modal-name=get_order] form footer div.menu menu a.policy a:hover, footer div.menu menu dialog[data-modal-name=get_order] form a.policy a:hover, dialog[data-modal-name=get_order] form footer div.policy.documents a:hover, footer dialog[data-modal-name=get_order] form div.policy.documents a:hover, dialog[data-modal-name=get_order] form div.details div.price span.policy a:hover, dialog[data-modal-name=get_order] div.details div.price form span.policy a:hover {
+  text-decoration: none;
+}
+dialog[data-modal-name=get_order] form div.total {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: repeat(2, -webkit-max-content);
+  grid-template-columns: repeat(2, max-content);
+}
+dialog[data-modal-name=get_callback] {
+  background-color: transparent;
+  max-height: 100%;
+  max-width: 100%;
+}
+dialog[data-modal-name=get_callback] div.container {
+  position: relative;
+  padding: calc(var(--gap) * 2);
+  max-width: 480px;
+  width: 100%;
+  color: #334752;
+  display: grid;
+  align-self: center;
+  grid-gap: var(--big-gap);
+  background-color: white;
+  border-radius: 4px;
+}
+dialog[data-modal-name=get_callback] div.cross {
+  cursor: pointer;
+  line-height: 0;
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+}
+dialog[data-modal-name=get_callback] div.cross svg {
+  width: 40px;
+  height: 40px;
+}
+dialog[data-modal-name=get_callback] div.cross:hover svg path {
+  stroke: #048187;
+}
+dialog[data-modal-name=get_callback] div.text {
+  display: grid;
+  grid-gap: 10px;
+}
+dialog[data-modal-name=get_callback] form {
+  display: grid;
+  grid-gap: 15px;
+}
+dialog[data-modal-name=get_callback] form input, dialog[data-modal-name=get_callback] form textarea {
+  border: 1px solid #C6CDD0;
+}
+dialog[data-modal-name=get_callback] form small.policy, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.policy.representative, dialog[data-modal-name=menu] dialog[data-modal-name=get_callback] form div.policy.representative, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.email div span.policy, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form input.policy, dialog[data-modal-name=get_callback] form textarea.policy, dialog[data-modal-name=get_callback] form button span.policy, button dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form a.button span.policy, a.button dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form fieldset.select div.select_current span.policy, fieldset.select div.select_current dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] form fieldset.select div.select_list label.policy, fieldset.select div.select_list dialog[data-modal-name=get_callback] form label.policy, dialog[data-modal-name=get_callback] form div.policy.tag, dialog[data-modal-name=get_callback] form a.product_card div.title span.policy.title, a.product_card div.title dialog[data-modal-name=get_callback] form span.policy.title, dialog[data-modal-name=get_callback] form header div.policy.representative, header dialog[data-modal-name=get_callback] form div.policy.representative, dialog[data-modal-name=get_callback] form footer div.catalog menu a.policy, footer div.catalog menu dialog[data-modal-name=get_callback] form a.policy, dialog[data-modal-name=get_callback] form footer div.menu menu a.policy, footer div.menu menu dialog[data-modal-name=get_callback] form a.policy, dialog[data-modal-name=get_callback] form footer div.policy.documents, footer dialog[data-modal-name=get_callback] form div.policy.documents, dialog[data-modal-name=get_callback] form dialog[data-modal-name=get_order] div.details div.price span.policy, dialog[data-modal-name=get_order] div.details div.price dialog[data-modal-name=get_callback] form span.policy, dialog[data-modal-name=get_callback] dialog[data-modal-name=get_order] form div.total span.policy, dialog[data-modal-name=get_order] dialog[data-modal-name=get_callback] form div.total span.policy {
+  padding-bottom: var(--small-gap);
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(43, 42, 41, 0.5);
+}
+dialog[data-modal-name=get_callback] form small.policy a, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.policy.representative a, dialog[data-modal-name=menu] dialog[data-modal-name=get_callback] form div.policy.representative a, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy a, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy a, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.email div span.policy a, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form input.policy a, dialog[data-modal-name=get_callback] form textarea.policy a, dialog[data-modal-name=get_callback] form button span.policy a, button dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form a.button span.policy a, a.button dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form fieldset.select div.select_current span.policy a, fieldset.select div.select_current dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] form fieldset.select div.select_list label.policy a, fieldset.select div.select_list dialog[data-modal-name=get_callback] form label.policy a, dialog[data-modal-name=get_callback] form div.policy.tag a, dialog[data-modal-name=get_callback] form a.product_card div.title span.policy.title a, a.product_card div.title dialog[data-modal-name=get_callback] form span.policy.title a, dialog[data-modal-name=get_callback] form header div.policy.representative a, header dialog[data-modal-name=get_callback] form div.policy.representative a, dialog[data-modal-name=get_callback] form footer div.catalog menu a.policy a, footer div.catalog menu dialog[data-modal-name=get_callback] form a.policy a, dialog[data-modal-name=get_callback] form footer div.menu menu a.policy a, footer div.menu menu dialog[data-modal-name=get_callback] form a.policy a, dialog[data-modal-name=get_callback] form footer div.policy.documents a, footer dialog[data-modal-name=get_callback] form div.policy.documents a, dialog[data-modal-name=get_callback] form dialog[data-modal-name=get_order] div.details div.price span.policy a, dialog[data-modal-name=get_order] div.details div.price dialog[data-modal-name=get_callback] form span.policy a, dialog[data-modal-name=get_callback] dialog[data-modal-name=get_order] form div.total span.policy a, dialog[data-modal-name=get_order] dialog[data-modal-name=get_callback] form div.total span.policy a {
+  text-decoration: underline;
+  color: #084A82;
+}
+dialog[data-modal-name=get_callback] form small.policy a:hover, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.policy.representative a:hover, dialog[data-modal-name=menu] dialog[data-modal-name=get_callback] form div.policy.representative a:hover, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.adress div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.adress div dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.phone div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.phone div dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form dialog[data-modal-name=menu] div.contacts div.email div span.policy a:hover, dialog[data-modal-name=menu] div.contacts div.email div dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form input.policy a:hover, dialog[data-modal-name=get_callback] form textarea.policy a:hover, dialog[data-modal-name=get_callback] form button span.policy a:hover, button dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form a.button span.policy a:hover, a.button dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form fieldset.select div.select_current span.policy a:hover, fieldset.select div.select_current dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] form fieldset.select div.select_list label.policy a:hover, fieldset.select div.select_list dialog[data-modal-name=get_callback] form label.policy a:hover, dialog[data-modal-name=get_callback] form div.policy.tag a:hover, dialog[data-modal-name=get_callback] form a.product_card div.title span.policy.title a:hover, a.product_card div.title dialog[data-modal-name=get_callback] form span.policy.title a:hover, dialog[data-modal-name=get_callback] form header div.policy.representative a:hover, header dialog[data-modal-name=get_callback] form div.policy.representative a:hover, dialog[data-modal-name=get_callback] form footer div.catalog menu a.policy a:hover, footer div.catalog menu dialog[data-modal-name=get_callback] form a.policy a:hover, dialog[data-modal-name=get_callback] form footer div.menu menu a.policy a:hover, footer div.menu menu dialog[data-modal-name=get_callback] form a.policy a:hover, dialog[data-modal-name=get_callback] form footer div.policy.documents a:hover, footer dialog[data-modal-name=get_callback] form div.policy.documents a:hover, dialog[data-modal-name=get_callback] form dialog[data-modal-name=get_order] div.details div.price span.policy a:hover, dialog[data-modal-name=get_order] div.details div.price dialog[data-modal-name=get_callback] form span.policy a:hover, dialog[data-modal-name=get_callback] dialog[data-modal-name=get_order] form div.total span.policy a:hover, dialog[data-modal-name=get_order] dialog[data-modal-name=get_callback] form div.total span.policy a:hover {
+  text-decoration: none;
+}
+
+dialog[data-modal-name=menu] {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  display: grid;
+  justify-items: end;
+  -webkit-animation-name: menu;
+          animation-name: menu;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 1;
+}
+dialog[data-modal-name=menu] div.container {
+  position: relative;
+  padding: calc(var(--gap) * 2);
+  max-width: 640px;
+  width: 100%;
+  color: #334752;
+  display: grid;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  grid-gap: var(--big-gap);
+  background-color: white;
+  border-radius: 4px;
+}
+dialog[data-modal-name=menu] div.cross {
+  cursor: pointer;
+  line-height: 0;
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+}
+dialog[data-modal-name=menu] div.cross svg {
+  width: 40px;
+  height: 40px;
+}
+dialog[data-modal-name=menu] div.cross:hover svg path {
+  stroke: #048187;
+}
+dialog[data-modal-name=menu] a.logotype {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  grid-gap: 15px;
+}
+@media (max-width: 640px) {
+  dialog[data-modal-name=menu] a.logotype img {
+    width: 30px;
+  }
+}
+dialog[data-modal-name=menu] a.logotype svg {
+  width: 140px;
+}
+@media (max-width: 640px) {
+  dialog[data-modal-name=menu] a.logotype svg {
+    width: 110px;
+  }
+}
+dialog[data-modal-name=menu] a.logotype svg path {
+  fill: #334752;
+}
+dialog[data-modal-name=menu] div.catalog, dialog[data-modal-name=menu] div.menu {
+  display: grid;
+  grid-gap: 10px;
+  border-bottom: 1px solid #C6CDD0;
+  padding-bottom: var(--big-gap);
+}
+dialog[data-modal-name=menu] div.catalog strong, dialog[data-modal-name=menu] div.menu strong {
+  opacity: 0.5;
+}
+dialog[data-modal-name=menu] div.catalog menu, dialog[data-modal-name=menu] div.menu menu {
+  display: grid;
+  grid-gap: 10px;
+}
+dialog[data-modal-name=menu] div.catalog a:hover, dialog[data-modal-name=menu] div.menu a:hover {
+  color: #048187;
+}
+dialog[data-modal-name=menu] div.contacts {
+  display: grid;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  grid-gap: var(--gap);
+}
+dialog[data-modal-name=menu] div.contacts div.adress, dialog[data-modal-name=menu] div.contacts div.phone, dialog[data-modal-name=menu] div.contacts div.email {
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-gap: var(--small-gap);
+}
+dialog[data-modal-name=menu] div.contacts div.adress svg, dialog[data-modal-name=menu] div.contacts div.phone svg, dialog[data-modal-name=menu] div.contacts div.email svg {
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 640px) {
+  dialog[data-modal-name=menu] div.contacts div.adress svg, dialog[data-modal-name=menu] div.contacts div.phone svg, dialog[data-modal-name=menu] div.contacts div.email svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+dialog[data-modal-name=menu] div.contacts div.adress svg path, dialog[data-modal-name=menu] div.contacts div.phone svg path, dialog[data-modal-name=menu] div.contacts div.email svg path {
+  stroke-width: 1.5px;
+}
+dialog[data-modal-name=menu] div.contacts div.adress div, dialog[data-modal-name=menu] div.contacts div.phone div, dialog[data-modal-name=menu] div.contacts div.email div {
+  display: grid;
+}
+dialog[data-modal-name=menu] div.contacts div.adress div span, dialog[data-modal-name=menu] div.contacts div.phone div span, dialog[data-modal-name=menu] div.contacts div.email div span {
+  opacity: 0.7;
+}
+dialog[data-modal-name=menu] div.contacts div.adress div a, dialog[data-modal-name=menu] div.contacts div.adress div strong, dialog[data-modal-name=menu] div.contacts div.phone div a, dialog[data-modal-name=menu] div.contacts div.phone div strong, dialog[data-modal-name=menu] div.contacts div.email div a, dialog[data-modal-name=menu] div.contacts div.email div strong {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 600;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+@media (max-width: 960px) {
+  dialog[data-modal-name=menu] div.contacts div.adress div a, dialog[data-modal-name=menu] div.contacts div.adress div strong, dialog[data-modal-name=menu] div.contacts div.phone div a, dialog[data-modal-name=menu] div.contacts div.phone div strong, dialog[data-modal-name=menu] div.contacts div.email div a, dialog[data-modal-name=menu] div.contacts div.email div strong {
+    font-size: 16px;
+  }
+}
+@media (max-width: 640px) {
+  dialog[data-modal-name=menu] div.contacts div.adress div a, dialog[data-modal-name=menu] div.contacts div.adress div strong, dialog[data-modal-name=menu] div.contacts div.phone div a, dialog[data-modal-name=menu] div.contacts div.phone div strong, dialog[data-modal-name=menu] div.contacts div.email div a, dialog[data-modal-name=menu] div.contacts div.email div strong {
+    font-size: 14px;
+  }
+}
+dialog[data-modal-name=menu] div.contacts div.adress div a:hover, dialog[data-modal-name=menu] div.contacts div.phone div a:hover, dialog[data-modal-name=menu] div.contacts div.email div a:hover {
+  color: #048187;
+}
+dialog[data-modal-name=menu] div.representative {
+  display: grid;
+  grid-gap: 5px;
+  border-top: 1px solid #C6CDD0;
+  padding-top: var(--big-gap);
+}
+dialog[data-modal-name=menu] div.representative span {
+  opacity: 0.5;
+}
+dialog[data-modal-name=menu] div.representative div.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 5px 20px;
+}
+
+@-webkit-keyframes menu {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes menu {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}/*# sourceMappingURL=common.css.map */

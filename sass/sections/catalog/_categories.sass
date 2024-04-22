@@ -1,0 +1,13 @@
+section.categories
+    padding-top: calc(var(--section-gap) / 2)
+    padding-bottom: var(--section-gap)
+
+    div.list
+        display: grid
+        align-items: start
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: var(--gap)
+        +screen(l)
+            grid-template-columns: repeat(3, 1fr)
+        +screen(s)
+            grid-template-columns: repeat(2, 1fr)

@@ -1,0 +1,15 @@
+section.description
+
+    div.container
+        display: grid
+        align-items: end
+        justify-items: start
+        grid-template-columns: 1fr max-content
+        grid-gap: var(--gap)
+        +screen(s)
+            grid-template-columns: 1fr
+
+    div.text
+        display: grid
+        grid-gap: var(--small-gap)
+        max-width: 960px

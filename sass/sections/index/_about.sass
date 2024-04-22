@@ -1,0 +1,175 @@
+section.about
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        align-items: start
+        grid-template-columns: 1fr 540px
+        grid-gap: var(--gap)
+        +screen(l)
+            grid-template-columns: repeat(2, 1fr)
+        +screen(m)
+            grid-template-columns: 1fr
+
+    div.about
+        display: grid
+        grid-gap: var(--big-gap)
+
+        div.title
+            display: grid
+            justify-items: start
+            grid-gap: var(--gap)
+
+        div.text
+            @extend small
+
+            div.accordion
+                display: grid
+                grid-gap: 10px
+                div.accordion_caption
+                    cursor: pointer
+                    display: grid
+                    justify-content: start
+                    grid-template-columns: auto max-content
+                    align-items: center
+                    grid-gap: 5px
+                    color: $color-green-dark
+                    transition: all .2s
+
+                    span.show
+                        display: inline
+                    span.hide
+                        display: none
+                    svg
+                        path
+                            transition: all .2s
+                            stroke: $color-green-dark
+
+                    &:hover
+                        color: $color-green-light
+                        svg
+                            path
+                                stroke: $color-green-light
+
+
+                &.open
+                    div.accordion_caption
+                        span.show
+                            display: none
+                        span.hide
+                            display: inline
+                        svg
+                            transform: rotate(180deg)
+
+        div.advantages
+            display: grid
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: var(--gap)
+            +screen(l)
+                grid-template-columns: 1fr
+                grid-gap: 10px
+            +screen(m)
+                grid-template-columns: repeat(2, 1fr)
+                grid-gap: 20px
+            +screen(s)
+                grid-template-columns: 1fr
+                grid-gap: 10px
+
+            div.advantage
+                display: grid
+                align-items: center
+                grid-template-columns: max-content 1fr
+                grid-gap: var(--gap)
+                background-color: white
+                border-radius: 4px
+                padding: 20px
+
+                svg
+                    width: 50px
+                    height: 50px
+                    path
+                        stroke-width: 1px
+
+                div
+                    display: grid
+                    grid-gap: 5px
+                
+                strong
+                    @extend big
+
+                span
+                    @extend small
+                    opacity: 0.7
+            
+    div.contacts
+        display: grid
+        justify-content: start
+        grid-gap: var(--big-gap)
+        margin-top: 66px
+        +screen(m)
+            margin-top: var(--section-gap)
+
+        div.adress
+            display: grid
+            align-items: start
+            grid-template-columns: max-content 1fr
+            grid-gap: var(--gap)
+            svg
+                width: 90px
+                height: 90px
+                +screen(m)
+                    width: 60px
+                    height: 60px
+                +screen(s)
+                    width: 40px
+                    height: 40px
+                path
+                    stroke-width: 1px
+
+        div.phone
+            display: grid
+            align-items: center
+            grid-template-columns: max-content 1fr
+            grid-gap: var(--small-gap)
+            padding-left: calc(90px + var(--gap))
+            +screen(m)
+                padding-left: calc(60px + var(--gap))
+            +screen(s)
+                padding-left: calc(40px + var(--gap))
+            svg
+                width: 40px
+                height: 40px
+                +screen(s)
+                    width: 30px
+                    height: 30px
+                path
+                    stroke-width: 1.5px
+            div
+                display: grid
+                span
+                    @extend small
+                    opacity: 0.7
+                a
+                    font-size: 24px
+                    line-height: 27px
+                    font-weight: 600
+                    transition: color .3s
+                    +screen(m)
+                        font-size: 20px
+                    +screen(s)
+                        font-size: 18px
+                    &:hover
+                        color: $color-green-dark
+
+        div.email
+            @extend .phone
+
+    img.map
+        grid-column: 1 / 3
+        margin-top: calc(var(--section-gap) / 2 * -1)
+        width: 100%
+        +screen(m)
+            grid-column: 1 / 2
+            margin-top: unset
+

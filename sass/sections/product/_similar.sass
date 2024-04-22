@@ -1,0 +1,18 @@
+section.similar
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: var(--big-gap)
+
+    div.list
+        display: grid
+        align-items: start
+        grid-template-columns: repeat(6, 1fr)
+        +screen(l)
+            grid-template-columns: repeat(4, 1fr)
+        +screen(m)
+            grid-template-columns: repeat(3, 1fr)
+        +screen(s)
+            grid-template-columns: repeat(2, 1fr)

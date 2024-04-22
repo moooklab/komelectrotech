@@ -1,0 +1,13 @@
+section.partners
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: calc(var(--gap) * 2)
+
+    div.list
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: var(--gap)
+        +screen(s)
+            grid-template-columns: 1fr

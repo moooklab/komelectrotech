@@ -1,0 +1,34 @@
+section.breadcrumbs
+    padding-top: var(--big-gap)
+    padding-bottom: var(--big-gap)
+
+    div.container
+        display: inline-flex
+        flex-wrap: wrap
+        align-items: center
+        gap: 10px var(--small-gap)
+
+    span
+        @extend small
+
+    a
+        display: grid
+        align-items: center
+        grid-template-columns: auto max-content
+        grid-gap: var(--small-gap)
+        position: relative
+        color: $color-green-dark
+        @extend small
+        &::after
+            content: ''
+            display: block
+            width: 20px
+            height: 1px
+            background-color: $color-gray
+
+        &:hover
+            color: $color-gray-dark
+
+        &:last-child
+            &::after
+                display: none

@@ -1,0 +1,54 @@
+dialog[data-modal-name=get_callback]
+    background-color: transparent
+    max-height: 100%
+    max-width: 100%
+
+    div.container
+        position: relative
+        padding: calc(var(--gap) * 2)
+        max-width: 480px    
+        width: 100%
+        color: $color-gray-dark
+        display: grid
+        align-self: center
+        grid-gap: var(--big-gap)
+        background-color: white
+        border-radius: 4px
+
+    div.cross
+        cursor: pointer
+        line-height: 0
+        position: absolute
+        top: var(--gap)
+        right: var(--gap)
+        svg
+            width: 40px
+            height: 40px
+
+        &:hover
+            svg
+                path
+                    stroke: $color-green-dark
+
+    div.text
+        display: grid
+        grid-gap: 10px
+
+    form
+        display: grid
+        grid-gap: 15px
+
+        input, textarea
+            border: 1px solid $color-gray
+
+        small.policy
+            padding-bottom: var(--small-gap)
+            font-size: 12px
+            line-height: 18px
+            color: rgba(43, 42, 41, 0.5)
+
+            a
+                text-decoration: underline
+                color: #084A82
+                &:hover
+                    text-decoration: none

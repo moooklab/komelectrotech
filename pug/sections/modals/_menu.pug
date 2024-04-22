@@ -1,0 +1,57 @@
+dialog(data-modal-name="menu")
+
+    div.container
+        div(data-modal-close).cross
+            include ../../../images/icons/Cross.svg
+
+        a(href="index.html").logotype
+            img(src="images/logotype_symbol.svg", alt="")
+            include ../../../images/logotype_text.svg
+    
+        div.catalog
+            strong Каталог
+            menu
+                li: a(href="category.html") Диоды
+                li: a(href="category.html") Диоды частотные
+                li: a(href="category.html") Тиристоры
+                li: a(href="category.html") Тиристоры быстродействующие
+                li: a(href="category.html") Диоды, тиристоры и симисторы на ток 10-80 Ампер
+                li: a(href="category.html") Модули, контакторы
+                li: a(href="category.html") Охладители
+                li: a(href="category.html") Складские остатки
+
+        div.menu
+            strong Меню
+            menu
+                li: a(href="index.html") Доставка
+                li: a(href="index.html") Партнеры
+                li: a(href="index.html") Прайс
+                li: a(href="contacts.html") Контакты
+                li: a(href="index.html") О компании
+
+        div.contacts
+
+            div.adress
+                include ../../../images/icons/Pin.svg
+                div
+                    span Адрес офиса
+                    strong 430006,Республика Мордовия, г. Саранск, ул. Энергетическая, 37
+
+            div.phone
+                include ../../../images/icons/Phone.svg
+                div
+                    span Телефон / Факс
+                    a(href="tel:78342241536") +7 (8342) 24-15-36
+
+            div.email
+                include ../../../images/icons/Email.svg
+                div
+                    span Электронная почта
+                    a(href="mailto:komelectrotex@mail.ru") komelectrotex@mail.ru
+
+        div.representative
+            span Официальный представитель
+            div.list
+                a(href="index.html").underline Электровыпрямитель
+                a(href="index.html").underline СЗТП
+                a(href="index.html").underline Электрум АВ

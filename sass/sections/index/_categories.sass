@@ -1,0 +1,27 @@
+section.categories
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+    background-color: white
+
+    div.container
+        display: grid
+        align-items: start
+        grid-template-columns: 1fr 2fr
+        grid-gap: calc(var(--gap) * 2)
+        +screen(m)
+            grid-template-columns: 1fr
+
+    div.description
+        display: grid
+        grid-gap: var(--big-gap)
+        justify-items: start
+
+    div.list
+        display: grid
+        align-items: start
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: var(--gap)
+        +screen(l)
+            grid-template-columns: repeat(3, 1fr)
+        +screen(s)
+            grid-template-columns: repeat(2, 1fr)

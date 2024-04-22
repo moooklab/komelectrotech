@@ -1,0 +1,47 @@
+section.contacts
+    div.container
+
+        h2 Контакты
+
+        div.contacts
+
+            div.adress
+                include ../../../images/icons/Pin.svg
+                div
+                    span Адрес офиса
+                    h3 430006,Республика Мордовия, г. Саранск, ул. Энергетическая, 37
+                    a(href="#map") Перейти к карте
+
+            div.phone
+                include ../../../images/icons/Phone.svg
+                div
+                    span Телефон / Факс
+                    a(href="tel:78342241536") +7 (8342) 24-15-36
+
+            div.email
+                include ../../../images/icons/Email.svg
+                div
+                    span Электронная почта
+                    a(href="mailto:komelectrotex@mail.ru") komelectrotex@mail.ru
+
+            div.requisite
+                strong Реквизиты:
+                span ИНН 1328166217
+                span КПП 132801001
+                span ОГРН 1021301115648
+                span: b Директор Пиксайкин Владимир Кузьмич
+
+        div.form
+            div.title
+                h3 Остались вопросы?
+                span Нам очень важно знать ваше мнение о нашей работе. Если у вас появились вопросы, предложения или пожелания,пожалуйста, свяжитесь с нами.
+            form
+                input(type="text", placeholder="ФИО")
+                div
+                    input(type="text", placeholder="E-mail")
+                    input(type="text", placeholder="8 (___) ___ - __ - __", data-phone-pattern="")
+                textarea(name="message", placeholder="Ваше сообшение", rows="3")
+                small.policy Нажимая кнопку, я даю свое согласие на обработку моих персональных данных в соответствии с законом № 152-ФЗ «О персональных данных» от 27.07.2006 и принимаю условия #[a(href="index.html") пользовательского соглашения].
+                button
+                    include ../../../images/icons/Email.svg
+                    span Отправить
