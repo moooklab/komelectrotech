@@ -12,7 +12,9 @@ search?.querySelector('input').addEventListener('focus', event => {
     search.classList.add('focus')
 })
 search?.querySelector('input').addEventListener('blur', event => {
-    search.classList.remove('focus')
+    setTimeout(function(){
+        search.classList.remove('focus')
+    }, 100)
 })
 
 function checkSearch () {

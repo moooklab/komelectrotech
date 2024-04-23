@@ -579,10 +579,12 @@ section.main {
           justify-content: center;
   text-align: center;
   background-color: #C6CDD0;
-  color: white;
 }
 section.main > * {
-  z-index: 1;
+  z-index: 2;
+}
+section.main h1 {
+  color: white;
 }
 section.main form.search {
   position: relative;
@@ -622,6 +624,7 @@ section.main div.representative {
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   grid-gap: 10px var(--gap);
+  color: white;
 }
 @media (max-width: 640px) {
   section.main div.representative {
@@ -638,6 +641,9 @@ section.main div.representative div.list {
   grid-auto-columns: max-content;
   grid-gap: var(--small-gap);
 }
+section.main div.representative a.underline::after {
+  background-color: white;
+}
 section.main div.results {
   position: absolute;
   top: 100%;
@@ -646,7 +652,7 @@ section.main div.results {
   background-color: white;
   display: none;
   justify-items: start;
-  z-index: 1;
+  z-index: 4;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   -webkit-box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
@@ -665,6 +671,7 @@ section.main div.images {
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 section.main div.images div.image {
   width: 200px;
