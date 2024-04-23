@@ -895,6 +895,19 @@ header div.menu:hover svg rect {
 }
 header.transparent {
   background-color: rgba(255, 255, 255, 0);
+  color: white;
+}
+header.transparent a.logotype svg path {
+  fill: white;
+}
+header.transparent a.underline::after {
+  background-color: white;
+}
+header.transparent svg path {
+  stroke: white;
+}
+header.transparent svg rect {
+  fill: white;
 }
 header.sticky {
   -webkit-box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
