@@ -1,4 +1,5 @@
 footer
+    overflow: hidden
     padding-top: calc(var(--section-gap))
     padding-bottom: calc(var(--section-gap))
     background-color: $color-gray-dark
@@ -14,6 +15,7 @@ footer
         grid-template-areas: 'Logotype Contacts Contacts' 'Copyright Catalog Menu' 'Documents Catalog Menu'
         grid-template-columns: 5fr 3fr 3fr
         grid-gap: 60px 80px
+        z-index: 1
         +screen(m)
             grid-template-areas: 'Logotype Logotype' 'Contacts Contacts' 'Catalog Menu' 'Copyright Copyright' 'Documents Documents'
             grid-template-columns: repeat(2, 1fr)
@@ -112,3 +114,32 @@ footer
         a
             &::after
                 background-color: white
+
+    div.background
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        grid-column: full
+        z-index: 0
+
+        &::after
+            content: ''
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: linear-gradient(to right, rgba(45, 45, 48, 0.7), rgba(22, 22, 27, 0.8))
+
+        img
+            position: absolute
+            top: -10%
+            left: -10%
+            width: 120%
+            height: 120%
+            object-fit: cover
+            object-position: center center
+            filter: blur(5px)

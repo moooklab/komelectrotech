@@ -16,13 +16,16 @@ header
                 a(href="index.html").underline СЗТП
                 a(href="index.html").underline Электрум АВ
 
-        div.adress
-            include ../../images/icons/Pin.svg
-            span г. Саранск
+        //- div.adress
+        //-     include ../../images/icons/Pin.svg
+        //-     span г. Саранск
 
         div.contacts
-            a(href="tel:78342241536") +7 (8342) 24-15-36
-            a(data-modal-target="get_callback").phone: include ../../images/icons/Phone.svg
-            a(href="mailto:komelectrotex@mail.ru").email: include ../../images/icons/Email.svg
+            div(data-modal-target="get_callback").phone: include ../../images/icons/Phone.svg
+            a(href="tel:78342241536").phone +7 (8342) 24-15-36
+            a(href="mailto:komelectrotex@mail.ru").email komelectrotex@mail.ru
+
+        div(data-modal-target="search").search
+            include ../../images/icons/Search.svg
 
         div(data-modal-target="menu").menu: include ../../images/icons/Menu.svg

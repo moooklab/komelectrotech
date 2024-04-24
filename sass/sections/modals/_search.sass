@@ -1,0 +1,83 @@
+dialog[data-modal-name=search]
+    background-color: transparent
+    width: 100%
+    height: 100%
+    max-height: 100%
+    max-width: 100%
+    display: grid
+    justify-items: center
+    animation-name: search
+    transform: translateY(-100%)
+    opacity: 0
+
+    div.container
+        position: relative
+        padding: unset
+        max-width: $content-maxwidth
+        padding-left: var(--gap)
+        padding-right: var(--gap)
+        margin: 0 auto
+        width: 100%
+        height: max-content
+        padding-left: var(--gap)
+        padding-right: var(--gap)
+
+    form.search
+        position: relative
+        top: 18px
+        left: 50%
+        width: 100%
+        max-width: 640px
+        border: 1px solid $color-green-dark
+        transform: translateX(-50%)
+        border-radius: 4px
+        button
+            cursor: pointer
+            padding: unset
+            position: absolute
+            top: 50%
+            right: 12px
+            width: 30px
+            height: 30px
+            background-color: transparent
+            transform: translateY(-50%)
+            line-height: 0
+            svg
+                path, circle
+                    stroke: $color-green-dark
+
+            &:hover
+                svg
+                    path, circle
+                        stroke: $color-green-light
+        &.focus.open
+            div.results
+                display: grid
+
+    div.results
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        background-color: white
+        display: none
+        justify-items: start
+        z-index: 4
+        border-bottom-left-radius: 4px
+        border-bottom-right-radius: 4px
+        box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15)
+        padding-top: 10px
+        padding-bottom: 10px
+
+        a
+            padding: 5px var(--gap)
+            &:hover
+                color: $color-green-dark
+
+@keyframes search
+    0%
+        opacity: 0
+        transform: translateY(-100%)
+    100%
+        opacity: 1
+        transform: translateY(0%)

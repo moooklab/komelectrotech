@@ -111,7 +111,7 @@ img {
   --full: minmax(var(--gap), 1fr);
   --content: min(1440px, 100% - var(--gap) * 2);
   --breakout: minmax(0, 190px);
-  --header-height: 86px;
+  --header-height: 88px;
   --section-gap: 120px;
 }
 @media (max-width: 960px) {
@@ -768,6 +768,7 @@ header {
   }
 }
 header div.container {
+  position: relative;
   display: grid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -844,43 +845,67 @@ header div.contacts {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-auto-flow: column;
-  grid-auto-columns: -webkit-max-content;
-  grid-auto-columns: max-content;
-  grid-gap: 20px;
+  grid-template-columns: -webkit-max-content -webkit-max-content;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: "Icon Phone" "Icon Email";
+  grid-gap: 0 10px;
 }
 @media (max-width: 640px) {
   header div.contacts {
-    grid-gap: 10px;
+    grid-template-areas: "Icon Phone";
   }
 }
-header div.contacts a {
-  font-size: 18px;
-  font-weight: 700;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
+@media (max-width: 520px) {
+  header div.contacts {
+    grid-template-areas: "Icon";
+    grid-template-columns: -webkit-max-content;
+    grid-template-columns: max-content;
+    margin-left: auto;
+  }
 }
-header div.contacts a:hover {
-  color: #048187;
+header div.contacts div.phone, header footer div.contacts div.email, footer header div.contacts div.email {
+  cursor: pointer;
+  grid-area: Icon;
+  line-height: 0;
 }
-@media (max-width: 540px) {
-  header div.contacts a:first-child {
+header div.contacts div.phone:hover svg path, header footer div.contacts div.email:hover svg path, footer header div.contacts div.email:hover svg path {
+  stroke: #048187;
+}
+header div.contacts a.phone {
+  grid-area: Phone;
+  font-size: 20px;
+}
+@media (max-width: 640px) {
+  header div.contacts a.phone {
+    font-size: 16px;
+  }
+}
+@media (max-width: 520px) {
+  header div.contacts a.phone {
     display: none;
   }
 }
-header div.contacts a.phone, header div.contacts a.email {
+header div.contacts a.phone:hover {
+  color: #048187;
+}
+header div.contacts a.email {
+  grid-area: Email;
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.8;
+}
+@media (max-width: 640px) {
+  header div.contacts a.email {
+    display: none;
+  }
+}
+header div.contacts a.email:hover {
+  color: #048187;
+  opacity: 1;
+}
+header div.search {
+  cursor: pointer;
   line-height: 0;
-  cursor: pointer;
-}
-header div.contacts a.phone svg path, header div.contacts a.email svg path {
-  -webkit-transition: stroke 0.2s;
-  transition: stroke 0.2s;
-}
-header div.contacts a.phone:hover svg path, header div.contacts a.email:hover svg path {
-  stroke: #048187;
-}
-header div.contacts img {
-  cursor: pointer;
 }
 header div.menu {
   cursor: pointer;
@@ -903,7 +928,7 @@ header.transparent a.logotype svg path {
 header.transparent a.underline::after {
   background-color: white;
 }
-header.transparent svg path {
+header.transparent svg path, header.transparent svg circle {
   stroke: white;
 }
 header.transparent svg rect {
@@ -915,6 +940,7 @@ header.sticky {
 }
 
 footer {
+  overflow: hidden;
   padding-top: calc(var(--section-gap));
   padding-bottom: calc(var(--section-gap));
   background-color: #334752;
@@ -931,6 +957,7 @@ footer div.container {
   grid-template-areas: "Logotype Contacts Contacts" "Copyright Catalog Menu" "Documents Catalog Menu";
   grid-template-columns: 5fr 3fr 3fr;
   grid-gap: 60px 80px;
+  z-index: 1;
 }
 @media (max-width: 960px) {
   footer div.container {
@@ -1049,6 +1076,39 @@ footer div.documents {
 }
 footer div.documents a::after {
   background-color: white;
+}
+footer div.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  grid-column: full;
+  z-index: 0;
+}
+footer div.background::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(45, 45, 48, 0.7)), to(rgba(22, 22, 27, 0.8)));
+  background: linear-gradient(to right, rgba(45, 45, 48, 0.7), rgba(22, 22, 27, 0.8));
+}
+footer div.background img {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 html:has(dialog[open]) {
@@ -1439,5 +1499,117 @@ dialog[data-modal-name=menu] div.representative div.list {
   100% {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
+  }
+}
+dialog[data-modal-name=search] {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  display: grid;
+  justify-items: center;
+  -webkit-animation-name: search;
+          animation-name: search;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 0;
+}
+dialog[data-modal-name=search] div.container {
+  position: relative;
+  padding: unset;
+  max-width: 1440px;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  margin: 0 auto;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+}
+dialog[data-modal-name=search] form.search {
+  position: relative;
+  top: 18px;
+  left: 50%;
+  width: 100%;
+  max-width: 640px;
+  border: 1px solid #048187;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 4px;
+}
+dialog[data-modal-name=search] form.search button {
+  cursor: pointer;
+  padding: unset;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  line-height: 0;
+}
+dialog[data-modal-name=search] form.search button svg path, dialog[data-modal-name=search] form.search button svg circle {
+  stroke: #048187;
+}
+dialog[data-modal-name=search] form.search button:hover svg path, dialog[data-modal-name=search] form.search button:hover svg circle {
+  stroke: #069da5;
+}
+dialog[data-modal-name=search] form.search.focus.open div.results {
+  display: grid;
+}
+dialog[data-modal-name=search] div.results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  display: none;
+  justify-items: start;
+  z-index: 4;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -webkit-box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
+          box-shadow: 0px 0px 30px rgba(51, 71, 82, 0.15);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+dialog[data-modal-name=search] div.results a {
+  padding: 5px var(--gap);
+}
+dialog[data-modal-name=search] div.results a:hover {
+  color: #048187;
+}
+
+@-webkit-keyframes search {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes search {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
   }
 }/*# sourceMappingURL=common.css.map */

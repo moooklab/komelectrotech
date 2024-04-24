@@ -11,6 +11,7 @@ header
         padding-bottom: 15px
 
     div.container
+        position: relative
         display: grid
         display: flex
         align-items: center
@@ -61,36 +62,49 @@ header
     div.contacts
         display: grid
         align-items: center
-        grid-auto-flow: column
-        grid-auto-columns: max-content
-        grid-gap: 20px
+        grid-template-columns: max-content max-content
+        grid-template-areas: 'Icon Phone' 'Icon Email'
+        grid-gap: 0 10px
         +screen(s)
-            grid-gap: 10px
+            grid-template-areas: 'Icon Phone'
+        +screen(520px)
+            grid-template-areas: 'Icon'
+            grid-template-columns: max-content
+            margin-left: auto
 
-        a
-            font-size: 18px
-            font-weight: 700
-            transition: color .2s
-            &:hover
-                color: $color-green-dark
-
-            &:first-child
-                +screen(540px)
-                    display: none
-        
-        a.phone, a.email
-            line-height: 0
+        div.phone
             cursor: pointer
-            svg
-                path
-                    transition: stroke .2s
+            grid-area: Icon
+            line-height: 0
             &:hover
                 svg
                     path
                         stroke: $color-green-dark
 
-        img
-            cursor: pointer      
+        a.phone
+            grid-area: Phone
+            font-size: 20px
+            +screen(s)
+                font-size: 16px
+            +screen(520px)
+                display: none
+            &:hover
+                color: $color-green-dark
+
+        a.email
+            grid-area: Email
+            font-size: 14px
+            font-weight: 300
+            opacity: .8
+            +screen(s)
+                display: none
+            &:hover
+                color: $color-green-dark
+                opacity: 1
+
+    div.search
+        cursor: pointer
+        line-height: 0
 
     div.menu
         cursor: pointer
@@ -117,7 +131,7 @@ header
                 background-color: white
 
         svg
-            path
+            path, circle
                 stroke: white
             rect
                 fill: white

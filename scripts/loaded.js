@@ -25,3 +25,23 @@ var changeTotal = (count) => {
     total = document.querySelector('dialog div.total strong')
     total.textContent = (count * price).toLocaleString("ru-RU") + ' ₽'
 }
+
+
+// Search
+dialogSearch = document.querySelector('dialog[data-modal-name=search] form.search')
+dialogResults = search?.querySelector('dialog[data-modal-name=search] div.results')
+
+dialogSearch?.addEventListener('input', checkSearch)
+dialogSearch?.querySelector('input').addEventListener('focus', event => {
+    dialogSearch.classList.add('focus')
+})
+dialogSearch?.querySelector('input').addEventListener('blur', event => {
+    setTimeout(function(){
+        dialogSearch.classList.remove('focus')
+    }, 100)
+})
+
+function checkSearch () {
+    length = dialogSearch.querySelector('input').value.length
+    length < 3 ? dialogSearch.classList.remove('open') : dialogSearch.classList.add('open')
+}
