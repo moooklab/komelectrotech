@@ -639,4 +639,11 @@ section.textpage ul li::before {
   position: absolute;
   top: 10px;
   left: 0;
+}
+section.textpage a {
+  color: #048187;
+  text-decoration: underline;
+}
+section.textpage a:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=page.css.map */
